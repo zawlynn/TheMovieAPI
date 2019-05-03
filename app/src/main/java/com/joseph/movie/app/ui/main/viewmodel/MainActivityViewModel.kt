@@ -32,6 +32,7 @@ class MainActivityViewModel(application: Application) : AndroidViewModel(applica
         repository.getArticles(context)
             .subscribe {
                 it.data?.let {
+                    Log.d("MOVIE REPOSITORY","GET DATA "+it.size)
                     movies_live.postValue(it)
                 }
                 if(it.status==Resource.Status.LOADING){
