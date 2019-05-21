@@ -1,4 +1,4 @@
-package com.joseph.movie.app.data.network
+package com.joseph.movie.app.data.network.response
 
 import com.google.gson.annotations.SerializedName
 import com.joseph.movie.app.data.database.movie.Movie

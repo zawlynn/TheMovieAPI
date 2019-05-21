@@ -1,6 +1,7 @@
 package com.joseph.movie.app.data.network
 
 
+import com.joseph.movie.app.data.network.response.ApiResponse
 import io.reactivex.Flowable
 import retrofit2.Response
 import retrofit2.http.GET

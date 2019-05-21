@@ -2,7 +2,6 @@ package com.joseph.movie.app.data.network
 
 import android.content.Context
 import android.net.ConnectivityManager
-import com.joseph.movie.app.data.repository.Resource
 import io.reactivex.Flowable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.exceptions.Exceptions
@@ -48,8 +47,12 @@ abstract class NetworkBoundResource<ResultType, RequestType>(context: Context) {
 
         result = when {
             context.isNetworkStatusAvailable() -> networkObservable
-                .map<Resource<ResultType>> { Resource.success(it) }
-                .onErrorReturn { Resource.error(it) }
+                .map<Resource<ResultType>> {
+                    Resource.success(it)
+                }
+                .onErrorReturn {
+                    Resource.error(it)
+                }
                 .observeOn(AndroidSchedulers.mainThread())
                 .startWith(Resource.loading())
 

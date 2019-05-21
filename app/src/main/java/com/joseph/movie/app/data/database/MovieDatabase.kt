@@ -12,13 +12,4 @@ import com.joseph.movie.app.data.database.movie.MovieDAO
 @Database(entities = [Movie::class], version = 2, exportSchema = false)
 abstract class MovieDatabase : RoomDatabase() {
     abstract fun movieDao(): MovieDAO
-    companion object {
-        var instant :MovieDatabase?=null
-        fun getInstance(context: Application):MovieDatabase{
-            if(instant==null){
-                instant = Room.databaseBuilder(context,MovieDatabase::class.java,"movie.db").fallbackToDestructiveMigration().build()
-            }
-            return instant as MovieDatabase
-        }
-    }
 }
